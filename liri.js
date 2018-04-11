@@ -61,19 +61,20 @@ if (command === "my-tweets") {
 if (command === "spotify-this-song") {
 
     spotify
-    .request('https://api.spotify.com/v1/search?q=track:' + fullTitle + '&type=track')
-    .then(function(data) {
-      console.log(data); 
-    })
-    .catch(function(err) {
-      console.error('Error occurred: ' + err); 
-    });
+        .request('https://api.spotify.com/v1/search?q=track:' + fullTitle + '&type=track')
+        .then(function (data) {
+            console.log("Album: " + JSON.stringify(data.tracks.items[0].album.name, null, 2));
+            console.log("Artist: " + JSON.stringify(data.tracks.items[0].album.artists[0].name, null, 2));
+        })
+        .catch(function (err) {
+            console.error('Error occurred: ' + err);
+        });
 
     // spotify.search({ type: 'track', query: fullTitle }, function(err, data) {
     //     if (err) {
     //       return console.log('Error occurred: ' + err);
     //     }
-       
+
     //   console.log(data); 
 
 
