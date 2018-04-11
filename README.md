@@ -1,6 +1,6 @@
 # Node.JS Language Interpretation App
 
-![Node.JS Language Interpretation App](liri_app_screenshot.png)
+![Node.JS Language Interpretation App](liri_screenshot.png)
 
  [View Live!](https://bereznd1.github.io/liri-node-app/liri.js) 
 
