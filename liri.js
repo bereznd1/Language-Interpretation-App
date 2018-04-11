@@ -1,9 +1,11 @@
+// Code to read and set any environment variables with the dotenv package
 require("dotenv").config();
 
-//Requiring the necessary NPM packages & our local Keys.js file
+// Requiring the necessary NPM packages & our local Keys.js file
 var Twitter = require('twitter');
 var Spotify = require('node-spotify-api');
 var request = require("request");
+var fs = require("fs");
 var keys = require("./keys.js");
 
 //Setting up variables to hold user input
@@ -15,7 +17,7 @@ var client = new Twitter(keys.twitter);
 var spotify = new Spotify(keys.spotify);
 
 
-
+//If the user types in "my-tweets"...
 if (command === "my-tweets") {
 
 
@@ -179,3 +181,60 @@ if (command === "movie-this") {
 
 }
 
+
+
+if (command === "do-what-it-says") {
+
+
+    fs.readFile("random.txt", "utf-8", function (err, data) {
+
+        if (err) {
+            return console.log(err);
+        }
+
+
+        var dataArr = data.split(",");
+
+        spotify
+            .request('https://api.spotify.com/v1/search?q=track:' + dataArr[1] + '&type=track')
+            .then(function (data) {
+                console.log("Song: " + JSON.stringify(data.tracks.items[0].name, null, 2));
+                console.log("Artist: " + JSON.stringify(data.tracks.items[0].album.artists[0].name, null, 2));
+                console.log("Album: " + JSON.stringify(data.tracks.items[0].album.name, null, 2));
+                console.log("Spotify Link: " + JSON.stringify(data.tracks.items[0].artists[0].external_urls.spotify, null, 2));
+
+
+            })
+            .catch(function (err) {
+                console.error('Error occurred: ' + err);
+            });
+
+
+
+
+
+
+    });
+
+
+
+    // if (fullTitle) {
+
+    //     spotify
+    //         .request('https://api.spotify.com/v1/search?q=track:' + fullTitle + '&type=track')
+    //         .then(function (data) {
+    //             console.log("Song: " + JSON.stringify(data.tracks.items[0].name, null, 2));
+    //             console.log("Artist: " + JSON.stringify(data.tracks.items[0].album.artists[0].name, null, 2));
+    //             console.log("Album: " + JSON.stringify(data.tracks.items[0].album.name, null, 2));
+    //             console.log("Spotify Link: " + JSON.stringify(data.tracks.items[0].artists[0].external_urls.spotify, null, 2));
+
+
+    //         })
+    //         .catch(function (err) {
+    //             console.error('Error occurred: ' + err);
+    //         });
+
+    // }
+
+
+}
