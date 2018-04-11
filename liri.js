@@ -16,6 +16,13 @@ var fullTitle = process.argv.slice(3).join("%20");
 var client = new Twitter(keys.twitter);
 var spotify = new Spotify(keys.spotify);
 
+//If the user doesn't enter any command, show default intro text
+if (!command) {
+
+    console.log("\nWelcome to LIRI, a command line node app that takes in parameters and gives you back data. \n\nTo retrieve last 20 tweets, use the command 'my-tweets'. \nTo retrieve information about a desired song, use the command 'spotify-this-song [song title]'. \nTo retrieve information about a desired movie, use the command 'movie-this [movie title]'. \nTo run 'spotify-this-song' feature using the info found in the local text file 'Random.txt', use the command 'do-what-it-says'. \n\n Enjoy!")
+
+}
+
 
 //Code for retrieving last 20 tweets
 if (command === "my-tweets") {
@@ -25,7 +32,7 @@ if (command === "my-tweets") {
 
     //Send a request to the Twitter API
     client.get('statuses/user_timeline', params, function (error, tweets, response) {
-        
+
         if (error) {
             return console.log('Error occurred: ' + error);
         }
