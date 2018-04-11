@@ -1,6 +1,6 @@
 # Node.JS Language Interpretation App
 
-![Node.JS Language Interpretation App](assets/images/liri_app_screenshot.png)
+![Node.JS Language Interpretation App](liri_app_screenshot.png)
 
  [View Live!](https://bereznd1.github.io/liri-node-app/liri.js) 
 
@@ -17,6 +17,6 @@ First, I "required" all the necessary NPM packages, plus the file that stores my
 * **"movie-this [movie title]"** - searches the OMDB database for the movie that the user entered and displays information about that movie
 * **"do-what-it-says"** - run the "spotify-this-song" command using the info found in a local text file
 
-I created **if-else statements** that evaluate which command was typed in, and use that information to know which task to run. For the Twitter command, if the predefined account has less than 20 tweets, the interface will display all of its tweets. For the Spotify command, if no song title is specified, the interface will display info on the default track "The Sign" by Ace of Base. For the movie command, if no movie title is specified, the interface will display info on the default film "Mr. Nobody". The last command, **do-what-it-says"**, uses the **fs** package to read a local text file and create an array based on the text within it. This enables the code to reference one of the array items and plug it into the URL that is called during the Spotify API request. 
+I created **if-else statements** that evaluate which command was typed in, and use that information to know which task to run. For the Twitter command, if the predefined account has less than 20 tweets, the interface will display all of its tweets. For the Spotify command, if no song title is specified, the interface will display info on the default track "The Sign" by Ace of Base. For the movie command, if no movie title is specified, the interface will display info on the default film "Mr. Nobody". The last command, **do-what-it-says**, uses the **fs** package to read a local text file and create an array based on the text within it. This enables the code to reference one of the array items and plug it into the URL that is called during the Spotify API request. 
 
 If the user doesn't type in any command when opening up the app in node, some predefined intro text will be displayed to inform of the command options they have.
