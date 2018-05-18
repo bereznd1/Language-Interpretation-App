@@ -2,7 +2,7 @@
 
 ![Node.JS Language Interpretation App](liri_screenshot.png)
 
- [View Live!](https://bereznd1.github.io/liri-node-app/liri.js) 
+ [View Live!](https://bereznd1.github.io/Language-Interpretation-App/liri.js) 
 
 
 ## Brief Description
